@@ -369,6 +369,46 @@
         "longitude": -4.77893,
         "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.85966,-4.77893"
       }
+    },
+    {
+      "id": "la_salud",
+      "name": "Centro de Salud Córdoba Centro",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.881336,
+        "longitude": -4.795835,
+        "Maps_url": "https://maps.google.com/?cid=12131012867333880003&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
+      }
+    },
+    {
+      "id": "basilica_gran_capitan",
+      "name": "Monumento al Gran Capitán",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.884444,
+        "longitude": -4.779444,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.884444,-4.779444"
+      }
+    },
+    {
+      "id": "medina_azahara",
+      "name": "Medina Azahara",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.888,
+        "longitude": -4.867,
+        "Maps_url": "https://maps.google.com/?cid=12022626158010312993&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
+      }
+    },
+    {
+      "id": "santa_ana",
+      "name": "Igreja de Santa Ana",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.881944,
+        "longitude": -4.779444,
+        "Maps_url": "https://maps.google.com/?cid=232040016567392315&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
+      }
     }
   ],
   "edges": [
@@ -385,9 +425,9 @@
     {"from": "santa_rosa", "to": "glorieta_almoguevares", "weight": 9, "distance": "700 m"},
     {"from": "glorieta_almoguevares", "to": "centro_salud_levante_norte", "weight": 8, "distance": "1.500 m"},
     {"from": "centro_ocio_tablero", "to": "glorieta_arroyo_moro", "weight": 12, "distance": "850 m"},
-    {"from": "glorieta_arroyo_moro", "to": "parque_figueros", "weight": 20, "distance": "1.600 m"},
+    {"from": "glorieta_arroyo_moro", "to": "parque_figueroa", "weight": 20, "distance": "1.600 m"},
     {"from": "glorieta_arroyo_moro", "to": "glorieta_amadora", "weight": 8, "distance": "650 m"},
-    {"from": "parque_figueros", "to": "miralbaida", "weight": 30, "distance": "2.400 m"},
+    {"from": "parque_figueroa", "to": "miralbaida", "weight": 30, "distance": "2.400 m"},
     {"from": "miralbaida", "to": "barriada_las_palmeras", "weight": 34, "distance": "4.300 m"},
     {"from": "glorieta_amadora", "to": "plaza_colon", "weight": 14, "distance": "1.100 m"},
     {"from": "la_salud", "to": "plaza_colon", "weight": 18, "distance": "1.400 m"},
@@ -402,7 +442,7 @@
     {"from": "glorieta_poeta_zabaleta", "to": "medina_azahara", "weight": 12, "distance": "950 m"},
     {"from": "medina_azahara", "to": "tendillas", "weight": 12, "distance": "950 m"},
     {"from": "tendillas", "to": "santa_ana", "weight": 8, "distance": "600 m"},
-    {"from": "glorieta_poeta_zabaleta", "to": "parque_figueros", "weight": 34, "distance": "2.700 m"},
+    {"from": "glorieta_poeta_zabaleta", "to": "parque_figueroa", "weight": 34, "distance": "2.700 m"},
     {"from": "glorieta_poeta_zabaleta", "to": "glorieta_arroyo_moro", "weight": 14, "distance": "1.100 m"},
     {"from": "medina_azahara", "to": "basilica_gran_capitan", "weight": 12, "distance": "950 m"},
     {"from": "tendillas", "to": "ayuntamiento", "weight": 5, "distance": "400 m"},
