@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafo Metrominuto</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .controls {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+        
+        button:hover {
+            background: #45a049;
+        }
+        
+        .graph-container {
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .node {
+            fill: #4CAF50;
+            stroke: #2E7D32;
+            stroke-width: 2px;
+            cursor: pointer;
+        }
+        
+        .node:hover {
+            fill: #66BB6A;
+            stroke-width: 3px;
+        }
+        
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+            stroke-width: 2px;
+        }
+        
+        .link:hover {
+            stroke: #666;
+            stroke-width: 3px;
+        }
+        
+        .node-label {
+            font-size: 10px;
+            fill: #333;
+            text-anchor: middle;
+            pointer-events: none;
+        }
+        
+        .edge-label {
+            font-size: 9px;
+            fill: #666;
+            text-anchor: middle;
+            pointer-events: none;
+        }
+        
+        .info-panel {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mapa Metrominuto - Visualización del Grafo</h1>
+        
+        <div class="controls">
+            <button onclick="resetSimulation()">Reiniciar Simulación</button>
+            <button onclick="toggleLabels()">Mostrar/Ocultar Etiquetas</button>
+            <button onclick="zoomFit()">Ajustar Zoom</button>
+        </div>
+        
+        <div class="graph-container">
+            <svg id="graph" width="1160" height="600"></svg>
+        </div>
+        
+        <div class="info-panel">
+            <h3>Información del Grafo</h3>
+            <div id="node-info">Haz clic en un nodo para ver información detallada.</div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="node-count">0</div>
+                <div class="stat-label">Nodos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="edge-count">0</div>
+                <div class="stat-label">Conexiones</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="avg-degree">0</div>
+                <div class="stat-label">Grado Promedio</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="total-time">0</div>
+                <div class="stat-label">Tiempo Total (min)</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Datos del grafo
+        const graphData = {
+            nodes: [
+                {id: "el_brillante_tablero", name: "El Brillante Tablero", type: "station"},
+                {id: "el_naranjo", name: "El Naranjo", type: "station"},
+                {id: "asomadilla", name: "Asomadilla", type: "station"},
+                {id: "centro_ocio_tablero", name: "Centro Ocio Tablero", type: "station"},
+                {id: "glorieta_arroyo_moro", name: "Glorieta Arroyo del Moro", type: "station"},
+                {id: "glorieta_amadora", name: "Glorieta Amadora", type: "station"},
+                {id: "s_rafael_alhama", name: "S. Rafael de la Alhama", type: "station"},
+                {id: "la_salud", name: "La Salud", type: "station"},
+                {id: "estacion_autobuses", name: "Estación Autobuses", type: "station"},
+                {id: "santa_rosa", name: "Santa Rosa", type: "station"},
+                {id: "glorieta_almoguevares", name: "Glorieta Almoguevares", type: "station"},
+                {id: "centro_salud_levante_norte", name: "Centro Salud Levante Norte", type: "station"},
+                {id: "parque_figueros", name: "Parque Figueros", type: "station"},
+                {id: "plaza_colon", name: "Plaza de Colón", type: "station"},
+                {id: "pl_cristo_de_gracia", name: "Pl. Cristo de Gracia", type: "station"},
+                {id: "pl_canero", name: "Pl. de Cañero", type: "station"},
+                {id: "parque_fidiana_cz_zahira", name: "Parque Fidiana Cz. Zahira", type: "station"},
+                {id: "barriada_las_palmeras", name: "Barriada Las Palmeras", type: "station"},
+                {id: "miralbaida", name: "Miralbaida", type: "station"},
+                {id: "glorieta_poeta_zabaleta", name: "Glorieta Poeta Ibn Zabaleta", type: "station"},
+                {id: "basilica_gran_capitan", name: "Basílica Gran Capitán", type: "station"},
+                {id: "ayuntamiento", name: "Ayuntamiento", type: "station"},
+                {id: "facultad_derecho", name: "Facultad Derecho", type: "station"},
+                {id: "medina_azahara", name: "Medina Azahara", type: "station"},
+                {id: "tendillas", name: "Tendillas", type: "station"},
+                {id: "santa_ana", name: "Santa Ana", type: "station"},
+                {id: "cc_el_arcangel", name: "C.C. El Arcángel", type: "station"},
+                {id: "centro_civico_fuensanta", name: "Centro Cívico Fuensanta", type: "station"},
+                {id: "el_zoco", name: "El Zoco", type: "station"},
+                {id: "costa_sol", name: "Costa Sol", type: "station"},
+                {id: "mezquita_catedral", name: "Mezquita-Catedral", type: "station"},
+                {id: "torre_calahorra", name: "Torre Calahorra", type: "station"},
+                {id: "parque_cruz_conde", name: "Parque Cruz Conde", type: "station"},
+                {id: "plaza_andalucia", name: "Plaza de Andalucía", type: "station"},
+                {id: "recinto_ferial_campo_futbol", name: "Recinto Ferial Campo de Fútbol El Arcángel", type: "station"},
+                {id: "jardin_botanico_zoologico", name: "Jardín Botánico Zoológico", type: "station"},
+                {id: "plaza_mediodia_sector_sur", name: "Plaza del Mediodía (Sector Sur)", type: "station"},
+                {id: "hospital_reina_sofia", name: "Hospital Reina Sofía", type: "station"},
+                {id: "barriada_guadalquivir", name: "Barriada Guadalquivir", type: "station"}
+            ],
+            links: [
+                {source: "el_brillante_tablero", target: "el_naranjo", weight: 3, distance: "2.400 m"},
+                {source: "el_naranjo", target: "asomadilla", weight: 8, distance: "652 m"},
+                {source: "el_brillante_tablero", target: "centro_ocio_tablero", weight: 11, distance: "2.8 km"},
+                {source: "el_naranjo", target: "centro_ocio_tablero", weight: 7, distance: "1.5 km"},
+                {source: "centro_ocio_tablero", target: "glorieta_amadora", weight: 14, distance: "950 m"},
+                {source: "glorieta_amadora", target: "s_rafael_alhama", weight: 6, distance: "490 m"},
+                {source: "glorieta_amadora", target: "la_salud", weight: 11, distance: "600 m"},
+                {source: "s_rafael_alhama", target: "la_salud", weight: 8, distance: "450 m"},
+                {source: "la_salud", target: "estacion_autobuses", weight: 8, distance: "600 m"},
+                {source: "estacion_autobuses", target: "santa_rosa", weight: 3, distance: "250 m"},
+                {source: "santa_rosa", target: "glorieta_almoguevares", weight: 9, distance: "700 m"},
+                {source: "glorieta_almoguevares", target: "centro_salud_levante_norte", weight: 8, distance: "1.500 m"},
+                {source: "centro_ocio_tablero", target: "glorieta_arroyo_moro", weight: 12, distance: "850 m"},
+                {source: "glorieta_arroyo_moro", target: "parque_figueros", weight: 20, distance: "1.600 m"},
+                {source: "glorieta_arroyo_moro", target: "glorieta_amadora", weight: 8, distance: "650 m"},
+                {source: "parque_figueros", target: "miralbaida", weight: 30, distance: "2.400 m"},
+                {source: "miralbaida", target: "barriada_las_palmeras", weight: 34, distance: "4.300 m"},
+                {source: "glorieta_amadora", target: "plaza_colon", weight: 14, distance: "1.100 m"},
+                {source: "la_salud", target: "plaza_colon", weight: 18, distance: "1.400 m"},
+                {source: "estacion_autobuses", target: "plaza_colon", weight: 14, distance: "1.100 m"},
+                {source: "plaza_colon", target: "pl_cristo_de_gracia", weight: 6, distance: "450 m"},
+                {source: "pl_cristo_de_gracia", target: "pl_canero", weight: 13, distance: "1.000 m"},
+                {source: "pl_canero", target: "parque_fidiana_cz_zahira", weight: 17, distance: "1.350 m"},
+                {source: "santa_rosa", target: "basilica_gran_capitan", weight: 8, distance: "600 m"},
+                {source: "basilica_gran_capitan", target: "ayuntamiento", weight: 5, distance: "400 m"},
+                {source: "ayuntamiento", target: "facultad_derecho", weight: 11, distance: "850 m"},
+                {source: "plaza_colon", target: "basilica_gran_capitan", weight: 14, distance: "1.100 m"},
+                {source: "glorieta_poeta_zabaleta", target: "medina_azahara", weight: 12, distance: "950 m"},
+                {source: "medina_azahara", target: "tendillas", weight: 12, distance: "950 m"},
+                {source: "tendillas", target: "santa_ana", weight: 8, distance: "600 m"},
+                {source: "glorieta_poeta_zabaleta", target: "parque_figueros", weight: 34, distance: "2.700 m"},
+                {source: "glorieta_poeta_zabaleta", target: "glorieta_arroyo_moro", weight: 14, distance: "1.100 m"},
+                {source: "medina_azahara", target: "basilica_gran_capitan", weight: 12, distance: "950 m"},
+                {source: "tendillas", target: "ayuntamiento", weight: 5, distance: "400 m"},
+                {source: "santa_ana", target: "mezquita_catedral", weight: 8, distance: "600 m"},
+                {source: "ayuntamiento", target: "mezquita_catedral", weight: 13, distance: "1.000 m"},
+                {source: "facultad_derecho", target: "cc_el_arcangel", weight: 20, distance: "1.600 m"},
+                {source: "cc_el_arcangel", target: "centro_civico_fuensanta", weight: 13, distance: "1.000 m"},
+                {source: "el_zoco", target: "glorieta_poeta_zabaleta", weight: 34, distance: "2.700 m"},
+                {source: "el_zoco", target: "costa_sol", weight: 17, distance: "1.350 m"},
+                {source: "costa_sol", target: "mezquita_catedral", weight: 8, distance: "600 m"},
+                {source: "mezquita_catedral", target: "torre_calahorra", weight: 6, distance: "450 m"},
+                {source: "costa_sol", target: "parque_cruz_conde", weight: 20, distance: "1.600 m"},
+                {source: "mezquita_catedral", target: "plaza_andalucia", weight: 14, distance: "1.100 m"},
+                {source: "torre_calahorra", target: "plaza_andalucia", weight: 8, distance: "600 m"},
+                {source: "plaza_andalucia", target: "recinto_ferial_campo_futbol", weight: 20, distance: "1.600 m"},
+                {source: "parque_cruz_conde", target: "jardin_botanico_zoologico", weight: 17, distance: "1.350 m"},
+                {source: "jardin_botanico_zoologico", target: "plaza_andalucia", weight: 8, distance: "600 m"},
+                {source: "plaza_andalucia", target: "plaza_mediodia_sector_sur", weight: 12, distance: "950 m"},
+                {source: "jardin_botanico_zoologico", target: "hospital_reina_sofia", weight: 17, distance: "1.350 m"},
+                {source: "plaza_mediodia_sector_sur", target: "barriada_guadalquivir", weight: 12, distance: "950 m"}
+            ]
+        };
+
+        // Variables globales
+        let svg, g, simulation, labelsVisible = true;
+        let zoom;
+        let nodeElements, linkElements, nodeLabelElements, edgeLabelElements;
+
+        // Configuración del SVG
+        const width = 1160;
+        const height = 600;
+        
+        // Inicializar el grafo
+        function initGraph() {
+            svg = d3.select("#graph");
+            
+            // Configurar zoom
+            zoom = d3.zoom()
+                .scaleExtent([0.1, 4])
+                .on("zoom", function(event) {
+                    g.attr("transform", event.transform);
+                });
+            
+            svg.call(zoom);
+            
+            g = svg.append("g");
+            
+            // Crear la simulación de fuerzas
+            simulation = d3.forceSimulation(graphData.nodes)
+                .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(d => d.weight * 5))
+                .force("charge", d3.forceManyBody().strength(-200))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collision", d3.forceCollide().radius(25));
+
+            // Crear las conexiones
+            linkElements = g.append("g")
+                .selectAll("line")
+                .data(graphData.links)
+                .join("line")
+                .attr("class", "link")
+                .attr("stroke-width", d => Math.sqrt(d.weight));
+
+            // Crear los nodos
+            nodeElements = g.append("g")
+                .selectAll("circle")
+                .data(graphData.nodes)
+                .join("circle")
+                .attr("class", "node")
+                .attr("r", 8)
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended))
+                .on("click", function(event, d) {
+                    showNodeInfo(d);
+                });
+
+            // Crear etiquetas de nodos
+            nodeLabelElements = g.append("g")
+                .selectAll("text")
+                .data(graphData.nodes)
+                .join("text")
+                .attr("class", "node-label")
+                .text(d => d.name)
+                .attr("dy", -12);
+
+            // Crear etiquetas de conexiones
+            edgeLabelElements = g.append("g")
+                .selectAll("text")
+                .data(graphData.links)
+                .join("text")
+                .attr("class", "edge-label")
+                .text(d => d.weight + " min")
+                .attr("dy", -2);
+
+            // Actualizar posiciones en cada tick
+            simulation.on("tick", function() {
+                linkElements
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                nodeElements
+                    .attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+
+                nodeLabelElements
+                    .attr("x", d => d.x)
+                    .attr("y", d => d.y);
+
+                edgeLabelElements
+                    .attr("x", d => (d.source.x + d.target.x) / 2)
+                    .attr("y", d => (d.source.y + d.target.y) / 2);
+            });
+
+            // Calcular estadísticas
+            updateStats();
+        }
+
+        // Funciones de arrastre
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        // Mostrar información del nodo
+        function showNodeInfo(node) {
+            const connections = graphData.links.filter(e => e.source.id === node.id || e.target.id === node.id);
+            const connectedNodes = connections.map(e => {
+                const connectedNodeId = e.source.id === node.id ? e.target.id : e.source.id;
+                return graphData.nodes.find(n => n.id === connectedNodeId).name;
+            });
+
+            const info = `
+                <h4>${node.name}</h4>
+                <p><strong>ID:</strong> ${node.id}</p>
+                <p><strong>Conexiones:</strong> ${connections.length}</p>
+                <p><strong>Conectado con:</strong> ${connectedNodes.join(', ')}</p>
+                <p><strong>Tiempos de viaje:</strong></p>
+                <ul>
+                    ${connections.map(c => `<li>${c.weight} min (${c.distance})</li>`).join('')}
+                </ul>
+            `;
+            
+            document.getElementById('node-info').innerHTML = info;
+        }
+
+        // Actualizar estadísticas
+        function updateStats() {
+            const nodeCount = graphData.nodes.length;
+            const edgeCount = graphData.links.length;
+            const totalTime = graphData.links.reduce((sum, e) => sum + e.weight, 0);
+            const avgDegree = (2 * edgeCount / nodeCount).toFixed(1);
+
+            document.getElementById('node-count').textContent = nodeCount;
+            document.getElementById('edge-count').textContent = edgeCount;
+            document.getElementById('total-time').textContent = totalTime;
+            document.getElementById('avg-degree').textContent = avgDegree;
+        }
+
+        // Funciones de control
+        function resetSimulation() {
+            simulation.alpha(1).restart();
+        }
+
+        function toggleLabels() {
+            labelsVisible = !labelsVisible;
+            const labels = d3.selectAll('.node-label, .edge-label');
+            labels.style('display', labelsVisible ? 'block' : 'none');
+        }
+
+        function zoomFit() {
+            const bounds = g.node().getBBox();
+            const fullWidth = width;
+            const fullHeight = height;
+            const widthScale = fullWidth / bounds.width;
+            const heightScale = fullHeight / bounds.height;
+            const scale = Math.min(widthScale, heightScale) * 0.9;
+            const translate = [
+                fullWidth / 2 - scale * (bounds.x + bounds.width / 2),
+                fullHeight / 2 - scale * (bounds.y + bounds.height / 2)
+            ];
+
+            svg.transition()
+                .duration(750)
+                .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
+        }
+
+        // Inicializar cuando se carga la página
+        window.addEventListener('DOMContentLoaded', function() {
+            initGraph();
+        });
+    </script>
+</body>
+</html>
