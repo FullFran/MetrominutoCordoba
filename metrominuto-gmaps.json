@@ -1,0 +1,447 @@
+{
+  "nodes": [
+    {
+      "id": "el_brillante_tablero",
+      "name": "El Brillante Tablero",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.9016,
+        "longitude": -4.7455,
+        "google_maps_url": "https://maps.google.com/?q=37.9016,-4.7455"
+      }
+    },
+    {
+      "id": "el_naranjo",
+      "name": "El Naranjo",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8892,
+        "longitude": -4.7523,
+        "google_maps_url": "https://maps.google.com/?q=37.8892,-4.7523"
+      }
+    },
+    {
+      "id": "asomadilla",
+      "name": "Asomadilla",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8845,
+        "longitude": -4.7567,
+        "google_maps_url": "https://maps.google.com/?q=37.8845,-4.7567"
+      }
+    },
+    {
+      "id": "centro_ocio_tablero",
+      "name": "Centro Ocio Tablero",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8923,
+        "longitude": -4.7289,
+        "google_maps_url": "https://maps.google.com/?q=37.8923,-4.7289"
+      }
+    },
+    {
+      "id": "glorieta_arroyo_moro",
+      "name": "Glorieta Arroyo del Moro",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8867,
+        "longitude": -4.7234,
+        "google_maps_url": "https://maps.google.com/?q=37.8867,-4.7234"
+      }
+    },
+    {
+      "id": "glorieta_amadora",
+      "name": "Glorieta Amadora",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8845,
+        "longitude": -4.7356,
+        "google_maps_url": "https://maps.google.com/?q=37.8845,-4.7356"
+      }
+    },
+    {
+      "id": "s_rafael_alhama",
+      "name": "S. Rafael de la Alhama",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8823,
+        "longitude": -4.7389,
+        "google_maps_url": "https://maps.google.com/?q=37.8823,-4.7389"
+      }
+    },
+    {
+      "id": "la_salud",
+      "name": "La Salud",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8812,
+        "longitude": -4.7423,
+        "google_maps_url": "https://maps.google.com/?q=37.8812,-4.7423"
+      }
+    },
+    {
+      "id": "estacion_autobuses",
+      "name": "Estación Autobuses",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8894,
+        "longitude": -4.7902,
+        "google_maps_url": "https://maps.google.com/?q=37.8894,-4.7902"
+      }
+    },
+    {
+      "id": "santa_rosa",
+      "name": "Santa Rosa",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8878,
+        "longitude": -4.7867,
+        "google_maps_url": "https://maps.google.com/?q=37.8878,-4.7867"
+      }
+    },
+    {
+      "id": "glorieta_almoguevares",
+      "name": "Glorieta Almoguevares",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8834,
+        "longitude": -4.7812,
+        "google_maps_url": "https://maps.google.com/?q=37.8834,-4.7812"
+      }
+    },
+    {
+      "id": "centro_salud_levante_norte",
+      "name": "Centro Salud Levante Norte",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8756,
+        "longitude": -4.7689,
+        "google_maps_url": "https://maps.google.com/?q=37.8756,-4.7689"
+      }
+    },
+    {
+      "id": "parque_figueros",
+      "name": "Parque Figueros",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8723,
+        "longitude": -4.7145,
+        "google_maps_url": "https://maps.google.com/?q=37.8723,-4.7145"
+      }
+    },
+    {
+      "id": "plaza_colon",
+      "name": "Plaza de Colón",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8823,
+        "longitude": -4.7512,
+        "google_maps_url": "https://maps.google.com/?q=37.8823,-4.7512"
+      }
+    },
+    {
+      "id": "pl_cristo_de_gracia",
+      "name": "Pl. Cristo de Gracia",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8789,
+        "longitude": -4.7534,
+        "google_maps_url": "https://maps.google.com/?q=37.8789,-4.7534"
+      }
+    },
+    {
+      "id": "pl_canero",
+      "name": "Pl. de Cañero",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8712,
+        "longitude": -4.7456,
+        "google_maps_url": "https://maps.google.com/?q=37.8712,-4.7456"
+      }
+    },
+    {
+      "id": "parque_fidiana_cz_zahira",
+      "name": "Parque Fidiana Cz. Zahira",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8634,
+        "longitude": -4.7345,
+        "google_maps_url": "https://maps.google.com/?q=37.8634,-4.7345"
+      }
+    },
+    {
+      "id": "barriada_las_palmeras",
+      "name": "Barriada Las Palmeras",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8456,
+        "longitude": -4.6823,
+        "google_maps_url": "https://maps.google.com/?q=37.8456,-4.6823"
+      }
+    },
+    {
+      "id": "miralbaida",
+      "name": "Miralbaida",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8578,
+        "longitude": -4.7089,
+        "google_maps_url": "https://maps.google.com/?q=37.8578,-4.7089"
+      }
+    },
+    {
+      "id": "glorieta_poeta_zabaleta",
+      "name": "Glorieta Poeta Ibn Zabaleta",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8834,
+        "longitude": -4.7123,
+        "google_maps_url": "https://maps.google.com/?q=37.8834,-4.7123"
+      }
+    },
+    {
+      "id": "basilica_gran_capitan",
+      "name": "Basílica Gran Capitán",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8823,
+        "longitude": -4.7789,
+        "google_maps_url": "https://maps.google.com/?q=37.8823,-4.7789"
+      }
+    },
+    {
+      "id": "ayuntamiento",
+      "name": "Ayuntamiento",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8789,
+        "longitude": -4.7823,
+        "google_maps_url": "https://maps.google.com/?q=37.8789,-4.7823"
+      }
+    },
+    {
+      "id": "facultad_derecho",
+      "name": "Facultad Derecho",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8712,
+        "longitude": -4.7889,
+        "google_maps_url": "https://maps.google.com/?q=37.8712,-4.7889"
+      }
+    },
+    {
+      "id": "medina_azahara",
+      "name": "Medina Azahara",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8756,
+        "longitude": -4.7678,
+        "google_maps_url": "https://maps.google.com/?q=37.8756,-4.7678"
+      }
+    },
+    {
+      "id": "tendillas",
+      "name": "Tendillas",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8778,
+        "longitude": -4.7789,
+        "google_maps_url": "https://maps.google.com/?q=37.8778,-4.7789"
+      }
+    },
+    {
+      "id": "santa_ana",
+      "name": "Santa Ana",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8789,
+        "longitude": -4.7723,
+        "google_maps_url": "https://maps.google.com/?q=37.8789,-4.7723"
+      }
+    },
+    {
+      "id": "cc_el_arcangel",
+      "name": "C.C. El Arcángel",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8645,
+        "longitude": -4.7945,
+        "google_maps_url": "https://maps.google.com/?q=37.8645,-4.7945"
+      }
+    },
+    {
+      "id": "centro_civico_fuensanta",
+      "name": "Centro Cívico Fuensanta",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8567,
+        "longitude": -4.7823,
+        "google_maps_url": "https://maps.google.com/?q=37.8567,-4.7823"
+      }
+    },
+    {
+      "id": "el_zoco",
+      "name": "El Zoco",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8612,
+        "longitude": -4.7234,
+        "google_maps_url": "https://maps.google.com/?q=37.8612,-4.7234"
+      }
+    },
+    {
+      "id": "costa_sol",
+      "name": "Costa Sol",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8689,
+        "longitude": -4.7456,
+        "google_maps_url": "https://maps.google.com/?q=37.8689,-4.7456"
+      }
+    },
+    {
+      "id": "mezquita_catedral",
+      "name": "Mezquita-Catedral",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8742,
+        "longitude": -4.7745,
+        "google_maps_url": "https://maps.google.com/?q=37.8742,-4.7745"
+      }
+    },
+    {
+      "id": "torre_calahorra",
+      "name": "Torre Calahorra",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8723,
+        "longitude": -4.7778,
+        "google_maps_url": "https://maps.google.com/?q=37.8723,-4.7778"
+      }
+    },
+    {
+      "id": "parque_cruz_conde",
+      "name": "Parque Cruz Conde",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8634,
+        "longitude": -4.7567,
+        "google_maps_url": "https://maps.google.com/?q=37.8634,-4.7567"
+      }
+    },
+    {
+      "id": "plaza_andalucia",
+      "name": "Plaza de Andalucía",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8667,
+        "longitude": -4.7823,
+        "google_maps_url": "https://maps.google.com/?q=37.8667,-4.7823"
+      }
+    },
+    {
+      "id": "recinto_ferial_campo_futbol",
+      "name": "Recinto Ferial Campo de Fútbol El Arcángel",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8523,
+        "longitude": -4.7945,
+        "google_maps_url": "https://maps.google.com/?q=37.8523,-4.7945"
+      }
+    },
+    {
+      "id": "jardin_botanico_zoologico",
+      "name": "Jardín Botánico Zoológico",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8612,
+        "longitude": -4.7723,
+        "google_maps_url": "https://maps.google.com/?q=37.8612,-4.7723"
+      }
+    },
+    {
+      "id": "plaza_mediodía_sector_sur",
+      "name": "Plaza del Mediodía (Sector Sur)",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8578,
+        "longitude": -4.7889,
+        "google_maps_url": "https://maps.google.com/?q=37.8578,-4.7889"
+      }
+    },
+    {
+      "id": "hospital_reina_sofia",
+      "name": "Hospital Reina Sofía",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8556,
+        "longitude": -4.7634,
+        "google_maps_url": "https://maps.google.com/?q=37.8556,-4.7634"
+      }
+    },
+    {
+      "id": "barriada_guadalquivir",
+      "name": "Barriada Guadalquivir",
+      "type": "station",
+      "coordinates": {
+        "latitude": 37.8489,
+        "longitude": -4.7945,
+        "google_maps_url": "https://maps.google.com/?q=37.8489,-4.7945"
+      }
+    }
+  ],
+  "edges": [
+    {"from": "el_brillante_tablero", "to": "el_naranjo", "weight": 3, "distance": "2.400 m"},
+    {"from": "el_naranjo", "to": "asomadilla", "weight": 8, "distance": "652 m"},
+    {"from": "el_brillante_tablero", "to": "centro_ocio_tablero", "weight": 11, "distance": "2.8 km"},
+    {"from": "el_naranjo", "to": "centro_ocio_tablero", "weight": 7, "distance": "1.5 km"},
+    {"from": "centro_ocio_tablero", "to": "glorieta_amadora", "weight": 14, "distance": "950 m"},
+    {"from": "glorieta_amadora", "to": "s_rafael_alhama", "weight": 6, "distance": "490 m"},
+    {"from": "glorieta_amadora", "to": "la_salud", "weight": 11, "distance": "600 m"},
+    {"from": "s_rafael_alhama", "to": "la_salud", "weight": 8, "distance": "450 m"},
+    {"from": "la_salud", "to": "estacion_autobuses", "weight": 8, "distance": "600 m"},
+    {"from": "estacion_autobuses", "to": "santa_rosa", "weight": 3, "distance": "250 m"},
+    {"from": "santa_rosa", "to": "glorieta_almoguevares", "weight": 9, "distance": "700 m"},
+    {"from": "glorieta_almoguevares", "to": "centro_salud_levante_norte", "weight": 8, "distance": "1.500 m"},
+    {"from": "centro_ocio_tablero", "to": "glorieta_arroyo_moro", "weight": 12, "distance": "850 m"},
+    {"from": "glorieta_arroyo_moro", "to": "parque_figueros", "weight": 20, "distance": "1.600 m"},
+    {"from": "glorieta_arroyo_moro", "to": "glorieta_amadora", "weight": 8, "distance": "650 m"},
+    {"from": "parque_figueros", "to": "miralbaida", "weight": 30, "distance": "2.400 m"},
+    {"from": "miralbaida", "to": "barriada_las_palmeras", "weight": 34, "distance": "4.300 m"},
+    {"from": "glorieta_amadora", "to": "plaza_colon", "weight": 14, "distance": "1.100 m"},
+    {"from": "la_salud", "to": "plaza_colon", "weight": 18, "distance": "1.400 m"},
+    {"from": "estacion_autobuses", "to": "plaza_colon", "weight": 14, "distance": "1.100 m"},
+    {"from": "plaza_colon", "to": "pl_cristo_de_gracia", "weight": 6, "distance": "450 m"},
+    {"from": "pl_cristo_de_gracia", "to": "pl_canero", "weight": 13, "distance": "1.000 m"},
+    {"from": "pl_canero", "to": "parque_fidiana_cz_zahira", "weight": 17, "distance": "1.350 m"},
+    {"from": "santa_rosa", "to": "basilica_gran_capitan", "weight": 8, "distance": "600 m"},
+    {"from": "basilica_gran_capitan", "to": "ayuntamiento", "weight": 5, "distance": "400 m"},
+    {"from": "ayuntamiento", "to": "facultad_derecho", "weight": 11, "distance": "850 m"},
+    {"from": "plaza_colon", "to": "basilica_gran_capitan", "weight": 14, "distance": "1.100 m"},
+    {"from": "glorieta_poeta_zabaleta", "to": "medina_azahara", "weight": 12, "distance": "950 m"},
+    {"from": "medina_azahara", "to": "tendillas", "weight": 12, "distance": "950 m"},
+    {"from": "tendillas", "to": "santa_ana", "weight": 8, "distance": "600 m"},
+    {"from": "glorieta_poeta_zabaleta", "to": "parque_figueros", "weight": 34, "distance": "2.700 m"},
+    {"from": "glorieta_poeta_zabaleta", "to": "glorieta_arroyo_moro", "weight": 14, "distance": "1.100 m"},
+    {"from": "medina_azahara", "to": "basilica_gran_capitan", "weight": 12, "distance": "950 m"},
+    {"from": "tendillas", "to": "ayuntamiento", "weight": 5, "distance": "400 m"},
+    {"from": "santa_ana", "to": "mezquita_catedral", "weight": 8, "distance": "600 m"},
+    {"from": "ayuntamiento", "to": "mezquita_catedral", "weight": 13, "distance": "1.000 m"},
+    {"from": "facultad_derecho", "to": "cc_el_arcangel", "weight": 20, "distance": "1.600 m"},
+    {"from": "cc_el_arcangel", "to": "centro_civico_fuensanta", "weight": 13, "distance": "1.000 m"},
+    {"from": "el_zoco", "to": "glorieta_poeta_zabaleta", "weight": 34, "distance": "2.700 m"},
+    {"from": "el_zoco", "to": "costa_sol", "weight": 17, "distance": "1.350 m"},
+    {"from": "costa_sol", "to": "mezquita_catedral", "weight": 8, "distance": "600 m"},
+    {"from": "mezquita_catedral", "to": "torre_calahorra", "weight": 6, "distance": "450 m"},
+    {"from": "costa_sol", "to": "parque_cruz_conde", "weight": 20, "distance": "1.600 m"},
+    {"from": "mezquita_catedral", "to": "plaza_andalucia", "weight": 14, "distance": "1.100 m"},
+    {"from": "torre_calahorra", "to": "plaza_andalucia", "weight": 8, "distance": "600 m"},
+    {"from": "plaza_andalucia", "to": "recinto_ferial_campo_futbol", "weight": 20, "distance": "1.600 m"},
+    {"from": "parque_cruz_conde", "to": "jardin_botanico_zoologico", "weight": 17, "distance": "1.350 m"},
+    {"from": "jardin_botanico_zoologico", "to": "plaza_andalucia", "weight": 8, "distance": "600 m"},
+    {"from": "plaza_andalucia", "to": "plaza_mediodía_sector_sur", "weight": 12, "distance": "950 m"},
+    {"from": "jardin_botanico_zoologico", "to": "hospital_reina_sofia", "weight": 17, "distance": "1.350 m"},
+    {"from": "plaza_mediodía_sector_sur", "to": "barriada_guadalquivir", "weight": 12, "distance": "950 m"}
+  ]
+}

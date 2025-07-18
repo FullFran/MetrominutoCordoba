@@ -133,6 +133,7 @@
             <button onclick="resetSimulation()">Reiniciar Simulación</button>
             <button onclick="toggleLabels()">Mostrar/Ocultar Etiquetas</button>
             <button onclick="zoomFit()">Ajustar Zoom</button>
+            <button onclick="toggleGeographicLayout()">Vista Geográfica/Simulación</button>
         </div>
         
         <div class="graph-container">
@@ -165,121 +166,33 @@
     </div>
 
     <script>
-        // Datos del grafo
-        const graphData = {
-            nodes: [
-                {id: "el_brillante_tablero", name: "El Brillante Tablero", type: "station"},
-                {id: "el_naranjo", name: "El Naranjo", type: "station"},
-                {id: "asomadilla", name: "Asomadilla", type: "station"},
-                {id: "centro_ocio_tablero", name: "Centro Ocio Tablero", type: "station"},
-                {id: "glorieta_arroyo_moro", name: "Glorieta Arroyo del Moro", type: "station"},
-                {id: "glorieta_amadora", name: "Glorieta Amadora", type: "station"},
-                {id: "s_rafael_alhama", name: "S. Rafael de la Alhama", type: "station"},
-                {id: "la_salud", name: "La Salud", type: "station"},
-                {id: "estacion_autobuses", name: "Estación Autobuses", type: "station"},
-                {id: "santa_rosa", name: "Santa Rosa", type: "station"},
-                {id: "glorieta_almoguevares", name: "Glorieta Almoguevares", type: "station"},
-                {id: "centro_salud_levante_norte", name: "Centro Salud Levante Norte", type: "station"},
-                {id: "parque_figueros", name: "Parque Figueros", type: "station"},
-                {id: "plaza_colon", name: "Plaza de Colón", type: "station"},
-                {id: "pl_cristo_de_gracia", name: "Pl. Cristo de Gracia", type: "station"},
-                {id: "pl_canero", name: "Pl. de Cañero", type: "station"},
-                {id: "parque_fidiana_cz_zahira", name: "Parque Fidiana Cz. Zahira", type: "station"},
-                {id: "barriada_las_palmeras", name: "Barriada Las Palmeras", type: "station"},
-                {id: "miralbaida", name: "Miralbaida", type: "station"},
-                {id: "glorieta_poeta_zabaleta", name: "Glorieta Poeta Ibn Zabaleta", type: "station"},
-                {id: "basilica_gran_capitan", name: "Basílica Gran Capitán", type: "station"},
-                {id: "ayuntamiento", name: "Ayuntamiento", type: "station"},
-                {id: "facultad_derecho", name: "Facultad Derecho", type: "station"},
-                {id: "medina_azahara", name: "Medina Azahara", type: "station"},
-                {id: "tendillas", name: "Tendillas", type: "station"},
-                {id: "santa_ana", name: "Santa Ana", type: "station"},
-                {id: "cc_el_arcangel", name: "C.C. El Arcángel", type: "station"},
-                {id: "centro_civico_fuensanta", name: "Centro Cívico Fuensanta", type: "station"},
-                {id: "el_zoco", name: "El Zoco", type: "station"},
-                {id: "costa_sol", name: "Costa Sol", type: "station"},
-                {id: "mezquita_catedral", name: "Mezquita-Catedral", type: "station"},
-                {id: "torre_calahorra", name: "Torre Calahorra", type: "station"},
-                {id: "parque_cruz_conde", name: "Parque Cruz Conde", type: "station"},
-                {id: "plaza_andalucia", name: "Plaza de Andalucía", type: "station"},
-                {id: "recinto_ferial_campo_futbol", name: "Recinto Ferial Campo de Fútbol El Arcángel", type: "station"},
-                {id: "jardin_botanico_zoologico", name: "Jardín Botánico Zoológico", type: "station"},
-                {id: "plaza_mediodia_sector_sur", name: "Plaza del Mediodía (Sector Sur)", type: "station"},
-                {id: "hospital_reina_sofia", name: "Hospital Reina Sofía", type: "station"},
-                {id: "barriada_guadalquivir", name: "Barriada Guadalquivir", type: "station"}
-            ],
-            links: [
-                {source: "el_brillante_tablero", target: "el_naranjo", weight: 3, distance: "2.400 m"},
-                {source: "el_naranjo", target: "asomadilla", weight: 8, distance: "652 m"},
-                {source: "el_brillante_tablero", target: "centro_ocio_tablero", weight: 11, distance: "2.8 km"},
-                {source: "el_naranjo", target: "centro_ocio_tablero", weight: 7, distance: "1.5 km"},
-                {source: "centro_ocio_tablero", target: "glorieta_amadora", weight: 14, distance: "950 m"},
-                {source: "glorieta_amadora", target: "s_rafael_alhama", weight: 6, distance: "490 m"},
-                {source: "glorieta_amadora", target: "la_salud", weight: 11, distance: "600 m"},
-                {source: "s_rafael_alhama", target: "la_salud", weight: 8, distance: "450 m"},
-                {source: "la_salud", target: "estacion_autobuses", weight: 8, distance: "600 m"},
-                {source: "estacion_autobuses", target: "santa_rosa", weight: 3, distance: "250 m"},
-                {source: "santa_rosa", target: "glorieta_almoguevares", weight: 9, distance: "700 m"},
-                {source: "glorieta_almoguevares", target: "centro_salud_levante_norte", weight: 8, distance: "1.500 m"},
-                {source: "centro_ocio_tablero", target: "glorieta_arroyo_moro", weight: 12, distance: "850 m"},
-                {source: "glorieta_arroyo_moro", target: "parque_figueros", weight: 20, distance: "1.600 m"},
-                {source: "glorieta_arroyo_moro", target: "glorieta_amadora", weight: 8, distance: "650 m"},
-                {source: "parque_figueros", target: "miralbaida", weight: 30, distance: "2.400 m"},
-                {source: "miralbaida", target: "barriada_las_palmeras", weight: 34, distance: "4.300 m"},
-                {source: "glorieta_amadora", target: "plaza_colon", weight: 14, distance: "1.100 m"},
-                {source: "la_salud", target: "plaza_colon", weight: 18, distance: "1.400 m"},
-                {source: "estacion_autobuses", target: "plaza_colon", weight: 14, distance: "1.100 m"},
-                {source: "plaza_colon", target: "pl_cristo_de_gracia", weight: 6, distance: "450 m"},
-                {source: "pl_cristo_de_gracia", target: "pl_canero", weight: 13, distance: "1.000 m"},
-                {source: "pl_canero", target: "parque_fidiana_cz_zahira", weight: 17, distance: "1.350 m"},
-                {source: "santa_rosa", target: "basilica_gran_capitan", weight: 8, distance: "600 m"},
-                {source: "basilica_gran_capitan", target: "ayuntamiento", weight: 5, distance: "400 m"},
-                {source: "ayuntamiento", target: "facultad_derecho", weight: 11, distance: "850 m"},
-                {source: "plaza_colon", target: "basilica_gran_capitan", weight: 14, distance: "1.100 m"},
-                {source: "glorieta_poeta_zabaleta", target: "medina_azahara", weight: 12, distance: "950 m"},
-                {source: "medina_azahara", target: "tendillas", weight: 12, distance: "950 m"},
-                {source: "tendillas", target: "santa_ana", weight: 8, distance: "600 m"},
-                {source: "glorieta_poeta_zabaleta", target: "parque_figueros", weight: 34, distance: "2.700 m"},
-                {source: "glorieta_poeta_zabaleta", target: "glorieta_arroyo_moro", weight: 14, distance: "1.100 m"},
-                {source: "medina_azahara", target: "basilica_gran_capitan", weight: 12, distance: "950 m"},
-                {source: "tendillas", target: "ayuntamiento", weight: 5, distance: "400 m"},
-                {source: "santa_ana", target: "mezquita_catedral", weight: 8, distance: "600 m"},
-                {source: "ayuntamiento", target: "mezquita_catedral", weight: 13, distance: "1.000 m"},
-                {source: "facultad_derecho", target: "cc_el_arcangel", weight: 20, distance: "1.600 m"},
-                {source: "cc_el_arcangel", target: "centro_civico_fuensanta", weight: 13, distance: "1.000 m"},
-                {source: "el_zoco", target: "glorieta_poeta_zabaleta", weight: 34, distance: "2.700 m"},
-                {source: "el_zoco", target: "costa_sol", weight: 17, distance: "1.350 m"},
-                {source: "costa_sol", target: "mezquita_catedral", weight: 8, distance: "600 m"},
-                {source: "mezquita_catedral", target: "torre_calahorra", weight: 6, distance: "450 m"},
-                {source: "costa_sol", target: "parque_cruz_conde", weight: 20, distance: "1.600 m"},
-                {source: "mezquita_catedral", target: "plaza_andalucia", weight: 14, distance: "1.100 m"},
-                {source: "torre_calahorra", target: "plaza_andalucia", weight: 8, distance: "600 m"},
-                {source: "plaza_andalucia", target: "recinto_ferial_campo_futbol", weight: 20, distance: "1.600 m"},
-                {source: "parque_cruz_conde", target: "jardin_botanico_zoologico", weight: 17, distance: "1.350 m"},
-                {source: "jardin_botanico_zoologico", target: "plaza_andalucia", weight: 8, distance: "600 m"},
-                {source: "plaza_andalucia", target: "plaza_mediodia_sector_sur", weight: 12, distance: "950 m"},
-                {source: "jardin_botanico_zoologico", target: "hospital_reina_sofia", weight: 17, distance: "1.350 m"},
-                {source: "plaza_mediodia_sector_sur", target: "barriada_guadalquivir", weight: 12, distance: "950 m"}
-            ]
-        };
-
-        // Variables globales
-        let svg, g, simulation, labelsVisible = true;
+        let graphData;
+        let svg, g, simulation, labelsVisible = true, geographicLayout = false;
         let zoom;
         let nodeElements, linkElements, nodeLabelElements, edgeLabelElements;
 
-        // Configuración del SVG
         const width = 1160;
         const height = 600;
-        
-        // Inicializar el grafo
+
+        async function loadGraphData() {
+            const response = await fetch('metrominuto-gmaps.json');
+            graphData = await response.json();
+            // d3.forceLink expects source and target to be node objects, not ids.
+            // We need to replace the ids with the actual node objects.
+            const nodeMap = new Map(graphData.nodes.map(n => [n.id, n]));
+            graphData.edges.forEach(edge => {
+                edge.source = nodeMap.get(edge.from);
+                edge.target = nodeMap.get(edge.to);
+            });
+            initGraph();
+        }
+
         function initGraph() {
             svg = d3.select("#graph");
             
-            // Configurar zoom
             zoom = d3.zoom()
-                .scaleExtent([0.1, 4])
-                .on("zoom", function(event) {
+                .scaleExtent([0.1, 10])
+                .on("zoom", (event) => {
                     g.attr("transform", event.transform);
                 });
             
@@ -287,22 +200,19 @@
             
             g = svg.append("g");
             
-            // Crear la simulación de fuerzas
             simulation = d3.forceSimulation(graphData.nodes)
-                .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(d => d.weight * 5))
-                .force("charge", d3.forceManyBody().strength(-200))
+                .force("link", d3.forceLink(graphData.edges).id(d => d.id).distance(d => d.weight * 5).strength(0.1))
+                .force("charge", d3.forceManyBody().strength(-300))
                 .force("center", d3.forceCenter(width / 2, height / 2))
-                .force("collision", d3.forceCollide().radius(25));
+                .force("collision", d3.forceCollide().radius(30));
 
-            // Crear las conexiones
             linkElements = g.append("g")
                 .selectAll("line")
-                .data(graphData.links)
+                .data(graphData.edges)
                 .join("line")
                 .attr("class", "link")
-                .attr("stroke-width", d => Math.sqrt(d.weight));
+                .attr("stroke-width", 2);
 
-            // Crear los nodos
             nodeElements = g.append("g")
                 .selectAll("circle")
                 .data(graphData.nodes)
@@ -313,11 +223,13 @@
                     .on("start", dragstarted)
                     .on("drag", dragged)
                     .on("end", dragended))
-                .on("click", function(event, d) {
+                .on("click", (event, d) => {
+                    if (d.coordinates && d.coordinates.google_maps_url) {
+                        window.open(d.coordinates.google_maps_url, '_blank');
+                    }
                     showNodeInfo(d);
                 });
 
-            // Crear etiquetas de nodos
             nodeLabelElements = g.append("g")
                 .selectAll("text")
                 .data(graphData.nodes)
@@ -326,17 +238,21 @@
                 .text(d => d.name)
                 .attr("dy", -12);
 
-            // Crear etiquetas de conexiones
             edgeLabelElements = g.append("g")
                 .selectAll("text")
-                .data(graphData.links)
+                .data(graphData.edges)
                 .join("text")
                 .attr("class", "edge-label")
-                .text(d => d.weight + " min")
+                .text(d => `${d.weight}'`)
                 .attr("dy", -2);
 
-            // Actualizar posiciones en cada tick
-            simulation.on("tick", function() {
+            simulation.on("tick", ticked);
+
+            updateStats();
+        }
+
+        function ticked() {
+            if (!geographicLayout) {
                 linkElements
                     .attr("x1", d => d.source.x)
                     .attr("y1", d => d.source.y)
@@ -354,57 +270,56 @@
                 edgeLabelElements
                     .attr("x", d => (d.source.x + d.target.x) / 2)
                     .attr("y", d => (d.source.y + d.target.y) / 2);
-            });
-
-            // Calcular estadísticas
-            updateStats();
+            }
         }
 
-        // Funciones de arrastre
         function dragstarted(event, d) {
+            if (geographicLayout) return;
             if (!event.active) simulation.alphaTarget(0.3).restart();
             d.fx = d.x;
             d.fy = d.y;
         }
 
         function dragged(event, d) {
+            if (geographicLayout) return;
             d.fx = event.x;
             d.fy = event.y;
         }
 
         function dragended(event, d) {
+            if (geographicLayout) return;
             if (!event.active) simulation.alphaTarget(0);
             d.fx = null;
             d.fy = null;
         }
 
-        // Mostrar información del nodo
         function showNodeInfo(node) {
-            const connections = graphData.links.filter(e => e.source.id === node.id || e.target.id === node.id);
+            const connections = graphData.edges.filter(e => e.source.id === node.id || e.target.id === node.id);
             const connectedNodes = connections.map(e => {
                 const connectedNodeId = e.source.id === node.id ? e.target.id : e.source.id;
-                return graphData.nodes.find(n => n.id === connectedNodeId).name;
+                const connectedNode = graphData.nodes.find(n => n.id === connectedNodeId);
+                return connectedNode ? connectedNode.name : "N/A";
             });
 
             const info = `
                 <h4>${node.name}</h4>
                 <p><strong>ID:</strong> ${node.id}</p>
+                ${node.coordinates ? `<p><strong>Ubicación:</strong> <a href="${node.coordinates.google_maps_url}" target="_blank">Ver en Google Maps</a></p>` : ''}
                 <p><strong>Conexiones:</strong> ${connections.length}</p>
                 <p><strong>Conectado con:</strong> ${connectedNodes.join(', ')}</p>
                 <p><strong>Tiempos de viaje:</strong></p>
                 <ul>
-                    ${connections.map(c => `<li>${c.weight} min (${c.distance})</li>`).join('')}
+                    ${connections.map(c => `<li>${c.weight} min (${c.distance}) a ${c.source.id === node.id ? graphData.nodes.find(n=>n.id===c.target.id).name : graphData.nodes.find(n=>n.id===c.source.id).name}</li>`).join('')}
                 </ul>
             `;
             
             document.getElementById('node-info').innerHTML = info;
         }
 
-        // Actualizar estadísticas
         function updateStats() {
             const nodeCount = graphData.nodes.length;
-            const edgeCount = graphData.links.length;
-            const totalTime = graphData.links.reduce((sum, e) => sum + e.weight, 0);
+            const edgeCount = graphData.edges.length;
+            const totalTime = graphData.edges.reduce((sum, e) => sum + e.weight, 0);
             const avgDegree = (2 * edgeCount / nodeCount).toFixed(1);
 
             document.getElementById('node-count').textContent = nodeCount;
@@ -413,38 +328,87 @@
             document.getElementById('avg-degree').textContent = avgDegree;
         }
 
-        // Funciones de control
         function resetSimulation() {
+            if (geographicLayout) {
+                toggleGeographicLayout(); // Switch back to simulation
+            }
             simulation.alpha(1).restart();
+            nodeElements.each(d => {
+                d.fx = null;
+                d.fy = null;
+            });
         }
 
         function toggleLabels() {
             labelsVisible = !labelsVisible;
-            const labels = d3.selectAll('.node-label, .edge-label');
-            labels.style('display', labelsVisible ? 'block' : 'none');
+            d3.selectAll('.node-label, .edge-label').style('display', labelsVisible ? 'block' : 'none');
         }
 
         function zoomFit() {
             const bounds = g.node().getBBox();
             const fullWidth = width;
             const fullHeight = height;
-            const widthScale = fullWidth / bounds.width;
-            const heightScale = fullHeight / bounds.height;
-            const scale = Math.min(widthScale, heightScale) * 0.9;
+            const scale = Math.min(fullWidth / bounds.width, fullHeight / bounds.height) * 0.9;
             const translate = [
                 fullWidth / 2 - scale * (bounds.x + bounds.width / 2),
                 fullHeight / 2 - scale * (bounds.y + bounds.height / 2)
             ];
 
-            svg.transition()
-                .duration(750)
-                .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
+            svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
         }
 
-        // Inicializar cuando se carga la página
-        window.addEventListener('DOMContentLoaded', function() {
-            initGraph();
-        });
+        function toggleGeographicLayout() {
+            geographicLayout = !geographicLayout;
+            
+            if (geographicLayout) {
+                simulation.stop();
+
+                const longitudes = graphData.nodes.map(n => n.coordinates.longitude);
+                const latitudes = graphData.nodes.map(n => n.coordinates.latitude);
+
+                const lonScale = d3.scaleLinear().domain(d3.extent(longitudes)).range([50, width - 50]);
+                const latScale = d3.scaleLinear().domain(d3.extent(latitudes)).range([height - 50, 50]);
+
+                nodeElements
+                    .transition().duration(750)
+                    .attr("cx", d => {
+                        d.fx = lonScale(d.coordinates.longitude);
+                        return d.fx;
+                    })
+                    .attr("cy", d => {
+                        d.fy = latScale(d.coordinates.latitude);
+                        return d.fy;
+                    });
+                
+                linkElements
+                    .transition().duration(750)
+                    .attr("x1", d => lonScale(d.source.coordinates.longitude))
+                    .attr("y1", d => latScale(d.source.coordinates.latitude))
+                    .attr("x2", d => lonScale(d.target.coordinates.longitude))
+                    .attr("y2", d => latScale(d.target.coordinates.latitude));
+
+                nodeLabelElements
+                    .transition().duration(750)
+                    .attr("x", d => lonScale(d.coordinates.longitude))
+                    .attr("y", d => latScale(d.coordinates.latitude));
+
+                edgeLabelElements
+                    .transition().duration(750)
+                    .attr("x", d => (lonScale(d.source.coordinates.longitude) + lonScale(d.target.coordinates.longitude)) / 2)
+                    .attr("y", d => (latScale(d.source.coordinates.latitude) + latScale(d.target.coordinates.latitude)) / 2);
+                
+                setTimeout(zoomFit, 800);
+
+            } else {
+                nodeElements.each(d => {
+                    d.fx = null;
+                    d.fy = null;
+                });
+                simulation.alpha(1).restart();
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', loadGraphData);
     </script>
 </body>
 </html>
