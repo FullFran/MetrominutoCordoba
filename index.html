@@ -177,12 +177,17 @@
         async function loadGraphData() {
             const response = await fetch('metrominuto-gmaps.json');
             graphData = await response.json();
-            // d3.forceLink expects source and target to be node objects, not ids.
-            // We need to replace the ids with the actual node objects.
+            
+            // Rename 'from' to 'source' and 'to' to 'target' for d3
+            graphData.edges.forEach(e => {
+                e.source = e.from;
+                e.target = e.to;
+            });
+
             const nodeMap = new Map(graphData.nodes.map(n => [n.id, n]));
             graphData.edges.forEach(edge => {
-                edge.source = nodeMap.get(edge.from);
-                edge.target = nodeMap.get(edge.to);
+                edge.source = nodeMap.get(edge.source);
+                edge.target = nodeMap.get(edge.target);
             });
             initGraph();
         }
@@ -224,8 +229,8 @@
                     .on("drag", dragged)
                     .on("end", dragended))
                 .on("click", (event, d) => {
-                    if (d.coordinates && d.coordinates.google_maps_url) {
-                        window.open(d.coordinates.google_maps_url, '_blank');
+                    if (d.coordinates && d.coordinates.Maps_url) {
+                        window.open(d.coordinates.Maps_url, '_blank');
                     }
                     showNodeInfo(d);
                 });
