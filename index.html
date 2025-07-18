@@ -177,17 +177,11 @@
         async function loadGraphData() {
             const response = await fetch('metrominuto-gmaps.json');
             graphData = await response.json();
-            
-            // Rename 'from' to 'source' and 'to' to 'target' for d3
-            graphData.edges.forEach(e => {
-                e.source = e.from;
-                e.target = e.to;
-            });
-
+            // D3 espera que source y target sean referencias a los objetos nodo
             const nodeMap = new Map(graphData.nodes.map(n => [n.id, n]));
-            graphData.edges.forEach(edge => {
-                edge.source = nodeMap.get(edge.source);
-                edge.target = nodeMap.get(edge.target);
+            graphData.edges.forEach(e => {
+                e.source = nodeMap.get(e.from);
+                e.target = nodeMap.get(e.to);
             });
             initGraph();
         }
@@ -309,7 +303,7 @@
             const info = `
                 <h4>${node.name}</h4>
                 <p><strong>ID:</strong> ${node.id}</p>
-                ${node.coordinates ? `<p><strong>Ubicación:</strong> <a href="${node.coordinates.google_maps_url}" target="_blank">Ver en Google Maps</a></p>` : ''}
+                ${node.coordinates && node.coordinates.Maps_url ? `<p><strong>Ubicación:</strong> <a href="${node.coordinates.Maps_url}" target="_blank">Ver en Google Maps</a></p>` : ''}
                 <p><strong>Conexiones:</strong> ${connections.length}</p>
                 <p><strong>Conectado con:</strong> ${connectedNodes.join(', ')}</p>
                 <p><strong>Tiempos de viaje:</strong></p>
@@ -317,7 +311,6 @@
                     ${connections.map(c => `<li>${c.weight} min (${c.distance}) a ${c.source.id === node.id ? graphData.nodes.find(n=>n.id===c.target.id).name : graphData.nodes.find(n=>n.id===c.source.id).name}</li>`).join('')}
                 </ul>
             `;
-            
             document.getElementById('node-info').innerHTML = info;
         }
 
