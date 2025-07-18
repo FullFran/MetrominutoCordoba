@@ -5,9 +5,9 @@
       "name": "El Brillante Tablero",
       "type": "station",
       "coordinates": {
-        "latitude": 37.9016,
-        "longitude": -4.7455,
-        "google_maps_url": "https://maps.google.com/?q=37.9016,-4.7455"
+        "latitude": 37.91036,
+        "longitude": -4.78817,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.91036,-4.78817"
       }
     },
     {
@@ -15,9 +15,9 @@
       "name": "El Naranjo",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8892,
-        "longitude": -4.7523,
-        "google_maps_url": "https://maps.google.com/?q=37.8892,-4.7523"
+        "latitude": 37.90691,
+        "longitude": -4.80145,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.90691,-4.80145"
       }
     },
     {
@@ -25,9 +25,9 @@
       "name": "Asomadilla",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8845,
-        "longitude": -4.7567,
-        "google_maps_url": "https://maps.google.com/?q=37.8845,-4.7567"
+        "latitude": 37.90382,
+        "longitude": -4.78281,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.90382,-4.78281"
       }
     },
     {
@@ -35,9 +35,9 @@
       "name": "Centro Ocio Tablero",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8923,
-        "longitude": -4.7289,
-        "google_maps_url": "https://maps.google.com/?q=37.8923,-4.7289"
+        "latitude": 37.9022,
+        "longitude": -4.79354,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.9022,-4.79354"
       }
     },
     {
@@ -45,9 +45,9 @@
       "name": "Glorieta Arroyo del Moro",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8867,
-        "longitude": -4.7234,
-        "google_maps_url": "https://maps.google.com/?q=37.8867,-4.7234"
+        "latitude": 37.8903,
+        "longitude": -4.80336,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.8903,-4.80336"
       }
     },
     {
@@ -55,39 +55,39 @@
       "name": "Glorieta Amadora",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8845,
-        "longitude": -4.7356,
-        "google_maps_url": "https://maps.google.com/?q=37.8845,-4.7356"
+        "latitude": 37.8972,
+        "longitude": -4.79812,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.8972,-4.79812"
       }
     },
     {
       "id": "s_rafael_alhama",
-      "name": "S. Rafael de la Alhama",
+      "name": "S. Rafael de la Albaida",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8823,
-        "longitude": -4.7389,
-        "google_maps_url": "https://maps.google.com/?q=37.8823,-4.7389"
+        "latitude": 37.89539,
+        "longitude": -4.81156,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.89539,-4.81156"
       }
     },
     {
-      "id": "la_salud",
-      "name": "La Salud",
+      "id": "parque_figueroa",
+      "name": "Parque Figueroa",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8812,
-        "longitude": -4.7423,
-        "google_maps_url": "https://maps.google.com/?q=37.8812,-4.7423"
+        "latitude": 37.89098,
+        "longitude": -4.81488,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.89098,-4.81488"
       }
     },
     {
       "id": "estacion_autobuses",
-      "name": "Estación Autobuses",
+      "name": "Estación Autobuses y Tren",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8804,
-        "longitude": -4.7902,
-        "google_maps_url": "https://maps.google.com/?q=37.8804,-4.7902"
+        "latitude": 37.88661,
+        "longitude": -4.79199,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.88661,-4.79199"
       }
     },
     {
@@ -95,19 +95,19 @@
       "name": "Santa Rosa",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8789,
-        "longitude": -4.7823,
-        "google_maps_url": "https://maps.google.com/?q=37.8789,-4.7823"
+        "latitude": 37.89737,
+        "longitude": -4.78013,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.89737,-4.78013"
       }
     },
     {
       "id": "glorieta_almoguevares",
-      "name": "Glorieta Almoguevares",
+      "name": "Glorieta Almogávares",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8756,
-        "longitude": -4.7789,
-        "google_maps_url": "https://maps.google.com/?q=37.8756,-4.7789"
+        "latitude": 37.89437,
+        "longitude": -4.77093,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.89437,-4.77093"
       }
     },
     {
@@ -115,19 +115,9 @@
       "name": "Centro Salud Levante Norte",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8723,
-        "longitude": -4.7612,
-        "google_maps_url": "https://maps.google.com/?q=37.8723,-4.7612"
-      }
-    },
-    {
-      "id": "parque_figueros",
-      "name": "Parque Figueros",
-      "type": "station",
-      "coordinates": {
-        "latitude": 37.8723,
-        "longitude": -4.7145,
-        "google_maps_url": "https://maps.google.com/?q=37.8723,-4.7145"
+        "latitude": 37.89278,
+        "longitude": -4.76106,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.89278,-4.76106"
       }
     },
     {
@@ -135,9 +125,9 @@
       "name": "Plaza de Colón",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8823,
-        "longitude": -4.7512,
-        "google_maps_url": "https://maps.google.com/?q=37.8823,-4.7512"
+        "latitude": 37.88836,
+        "longitude": -4.77443,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.88836,-4.77443"
       }
     },
     {
@@ -145,29 +135,29 @@
       "name": "Pl. Cristo de Gracia",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8789,
-        "longitude": -4.7534,
-        "google_maps_url": "https://maps.google.com/?q=37.8789,-4.7534"
+        "latitude": 37.88451,
+        "longitude": -4.76839,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.88451,-4.76839"
       }
     },
     {
       "id": "pl_canero",
-      "name": "Pl. de Cañero",
+      "name": "P.I. de Cañero",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8712,
-        "longitude": -4.7456,
-        "google_maps_url": "https://maps.google.com/?q=37.8712,-4.7456"
+        "latitude": 37.8837,
+        "longitude": -4.7578,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.8837,-4.7578"
       }
     },
     {
       "id": "parque_fidiana_cz_zahira",
-      "name": "Parque Fidiana Cz. Zahira",
+      "name": "Parque Fidiana C.C. Zahira",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8634,
-        "longitude": -4.7345,
-        "google_maps_url": "https://maps.google.com/?q=37.8634,-4.7345"
+        "latitude": 37.8882,
+        "longitude": -4.7523,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.8882,-4.7523"
       }
     },
     {
@@ -175,9 +165,9 @@
       "name": "Barriada Las Palmeras",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8456,
-        "longitude": -4.6823,
-        "google_maps_url": "https://maps.google.com/?q=37.8456,-4.6823"
+        "latitude": 37.88147,
+        "longitude": -4.84589,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.88147,-4.84589"
       }
     },
     {
@@ -185,29 +175,29 @@
       "name": "Miralbaida",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8578,
-        "longitude": -4.7089,
-        "google_maps_url": "https://maps.google.com/?q=37.8578,-4.7089"
+        "latitude": 37.88583,
+        "longitude": -4.82361,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.88583,-4.82361"
       }
     },
     {
       "id": "glorieta_poeta_zabaleta",
-      "name": "Glorieta Poeta Ibn Zabaleta",
+      "name": "Glorieta Poeta Ibn Zaydun",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8834,
-        "longitude": -4.7123,
-        "google_maps_url": "https://maps.google.com/?q=37.8834,-4.7123"
+        "latitude": 37.87979,
+        "longitude": -4.80214,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.87979,-4.80214"
       }
     },
     {
-      "id": "basilica_gran_capitan",
-      "name": "Basílica Gran Capitán",
+      "id": "ronda_tejares_gran_capitan",
+      "name": "Ronda Tejares Gran Capitán",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8801,
-        "longitude": -4.7789,
-        "google_maps_url": "https://maps.google.com/?q=37.8801,-4.7789"
+        "latitude": 37.88417,
+        "longitude": -4.78258,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.88417,-4.78258"
       }
     },
     {
@@ -215,9 +205,9 @@
       "name": "Ayuntamiento",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8756,
-        "longitude": -4.7823,
-        "google_maps_url": "https://maps.google.com/?q=37.8756,-4.7823"
+        "latitude": 37.88219,
+        "longitude": -4.7766,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.88219,-4.7766"
       }
     },
     {
@@ -225,39 +215,29 @@
       "name": "Facultad Derecho",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8689,
-        "longitude": -4.7889,
-        "google_maps_url": "https://maps.google.com/?q=37.8689,-4.7889"
+        "latitude": 37.87913,
+        "longitude": -4.77095,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.87913,-4.77095"
       }
     },
     {
-      "id": "medina_azahara",
-      "name": "Medina Azahara",
+      "id": "rectorado",
+      "name": "Rectorado",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8756,
-        "longitude": -4.7678,
-        "google_maps_url": "https://maps.google.com/?q=37.8756,-4.7678"
+        "latitude": 37.88094,
+        "longitude": -4.78536,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.88094,-4.78536"
       }
     },
     {
       "id": "tendillas",
-      "name": "Tendillas",
+      "name": "Plaza de las Tendillas",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8778,
-        "longitude": -4.7789,
-        "google_maps_url": "https://maps.google.com/?q=37.8778,-4.7789"
-      }
-    },
-    {
-      "id": "santa_ana",
-      "name": "Santa Ana",
-      "type": "station",
-      "coordinates": {
-        "latitude": 37.8789,
-        "longitude": -4.7723,
-        "google_maps_url": "https://maps.google.com/?q=37.8789,-4.7723"
+        "latitude": 37.88339,
+        "longitude": -4.78011,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.88339,-4.78011"
       }
     },
     {
@@ -265,9 +245,9 @@
       "name": "C.C. El Arcángel",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8645,
-        "longitude": -4.7945,
-        "google_maps_url": "https://maps.google.com/?q=37.8645,-4.7945"
+        "latitude": 37.87983,
+        "longitude": -4.76569,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.87983,-4.76569"
       }
     },
     {
@@ -275,9 +255,9 @@
       "name": "Centro Cívico Fuensanta",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8567,
-        "longitude": -4.7823,
-        "google_maps_url": "https://maps.google.com/?q=37.8567,-4.7823"
+        "latitude": 37.87788,
+        "longitude": -4.76014,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.87788,-4.76014"
       }
     },
     {
@@ -285,19 +265,19 @@
       "name": "El Zoco",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8612,
-        "longitude": -4.7234,
-        "google_maps_url": "https://maps.google.com/?q=37.8612,-4.7234"
+        "latitude": 37.86991,
+        "longitude": -4.80104,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.86991,-4.80104"
       }
     },
     {
       "id": "costa_sol",
-      "name": "Costa Sol",
+      "name": "Plaza de Costa Sol",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8689,
-        "longitude": -4.7456,
-        "google_maps_url": "https://maps.google.com/?q=37.8689,-4.7456"
+        "latitude": 37.87321,
+        "longitude": -4.79326,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.87321,-4.79326"
       }
     },
     {
@@ -305,19 +285,19 @@
       "name": "Mezquita-Catedral",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8787,
-        "longitude": -4.7797,
-        "google_maps_url": "https://maps.google.com/?q=37.8787,-4.7797"
+        "latitude": 37.87889,
+        "longitude": -4.77949,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.87889,-4.77949"
       }
     },
     {
       "id": "torre_calahorra",
-      "name": "Torre Calahorra",
+      "name": "Torre de la Calahorra",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8756,
-        "longitude": -4.7778,
-        "google_maps_url": "https://maps.google.com/?q=37.8756,-4.7778"
+        "latitude": 37.87532,
+        "longitude": -4.77884,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.87532,-4.77884"
       }
     },
     {
@@ -325,9 +305,9 @@
       "name": "Parque Cruz Conde",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8634,
-        "longitude": -4.7567,
-        "google_maps_url": "https://maps.google.com/?q=37.8634,-4.7567"
+        "latitude": 37.86926,
+        "longitude": -4.78652,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.86926,-4.78652"
       }
     },
     {
@@ -335,29 +315,29 @@
       "name": "Plaza de Andalucía",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8667,
-        "longitude": -4.7823,
-        "google_maps_url": "https://maps.google.com/?q=37.8667,-4.7823"
+        "latitude": 37.87023,
+        "longitude": -4.77726,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.87023,-4.77726"
       }
     },
     {
       "id": "recinto_ferial_campo_futbol",
-      "name": "Recinto Ferial Campo de Fútbol El Arcángel",
+      "name": "Recinto Ferial y Estadio El Arcángel",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8523,
-        "longitude": -4.7945,
-        "google_maps_url": "https://maps.google.com/?q=37.8523,-4.7945"
+        "latitude": 37.88219,
+        "longitude": -4.76182,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.88219,-4.76182"
       }
     },
     {
       "id": "jardin_botanico_zoologico",
-      "name": "Jardín Botánico Zoológico",
+      "name": "Jardín Botánico y Zoológico",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8612,
-        "longitude": -4.7723,
-        "google_maps_url": "https://maps.google.com/?q=37.8612,-4.7723"
+        "latitude": 37.87321,
+        "longitude": -4.78363,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.87321,-4.78363"
       }
     },
     {
@@ -365,9 +345,9 @@
       "name": "Plaza del Mediodía (Sector Sur)",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8578,
-        "longitude": -4.7889,
-        "google_maps_url": "https://maps.google.com/?q=37.8578,-4.7889"
+        "latitude": 37.86591,
+        "longitude": -4.77978,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.86591,-4.77978"
       }
     },
     {
@@ -375,9 +355,9 @@
       "name": "Hospital Reina Sofía",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8556,
-        "longitude": -4.7634,
-        "google_maps_url": "https://maps.google.com/?q=37.8556,-4.7634"
+        "latitude": 37.86618,
+        "longitude": -4.79374,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.86618,-4.79374"
       }
     },
     {
@@ -385,9 +365,9 @@
       "name": "Barriada Guadalquivir",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8489,
-        "longitude": -4.7945,
-        "google_maps_url": "https://maps.google.com/?q=37.8489,-4.7945"
+        "latitude": 37.85966,
+        "longitude": -4.77893,
+        "Maps_url": "https://www.google.com/maps/search/?api=1&query=37.85966,-4.77893"
       }
     }
   ],
