@@ -176,13 +176,34 @@
 
         async function loadGraphData() {
             const response = await fetch('metrominuto-gmaps.json');
-            graphData = await response.json();
-            // D3 espera que source y target sean referencias a los objetos nodo
+            const rawData = await response.json();
+
+            // Procesar nodos para aplanar la estructura y hacerla compatible
+            const nodes = rawData.nodes.map(n => ({
+                ...n,
+                latitude: n.coordinates.latitude,
+                longitude: n.coordinates.longitude,
+                google_maps_url: n.coordinates.Maps_url 
+            }));
+
+            // Procesar aristas para que D3 las entienda como enlaces
+            const links = rawData.edges.map(e => ({
+                source: e.from,
+                target: e.to,
+                weight: e.weight,
+                distance: e.distance
+            }));
+
+            graphData = { nodes, links };
+            
+            // Mapear IDs de enlaces a objetos de nodo
             const nodeMap = new Map(graphData.nodes.map(n => [n.id, n]));
-            graphData.edges.forEach(e => {
-                e.source = nodeMap.get(e.from);
-                e.target = nodeMap.get(e.to);
+            
+            graphData.links.forEach(link => {
+                link.source = nodeMap.get(link.source);
+                link.target = nodeMap.get(link.target);
             });
+            
             initGraph();
         }
 
@@ -200,14 +221,14 @@
             g = svg.append("g");
             
             simulation = d3.forceSimulation(graphData.nodes)
-                .force("link", d3.forceLink(graphData.edges).id(d => d.id).distance(d => d.weight * 5).strength(0.1))
+                .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(d => d.weight * 5).strength(0.1))
                 .force("charge", d3.forceManyBody().strength(-300))
                 .force("center", d3.forceCenter(width / 2, height / 2))
                 .force("collision", d3.forceCollide().radius(30));
 
             linkElements = g.append("g")
                 .selectAll("line")
-                .data(graphData.edges)
+                .data(graphData.links)
                 .join("line")
                 .attr("class", "link")
                 .attr("stroke-width", 2);
@@ -223,8 +244,8 @@
                     .on("drag", dragged)
                     .on("end", dragended))
                 .on("click", (event, d) => {
-                    if (d.coordinates && d.coordinates.Maps_url) {
-                        window.open(d.coordinates.Maps_url, '_blank');
+                    if (d.google_maps_url) {
+                        window.open(d.google_maps_url, '_blank');
                     }
                     showNodeInfo(d);
                 });
@@ -239,7 +260,7 @@
 
             edgeLabelElements = g.append("g")
                 .selectAll("text")
-                .data(graphData.edges)
+                .data(graphData.links)
                 .join("text")
                 .attr("class", "edge-label")
                 .text(d => `${d.weight}'`)
@@ -293,22 +314,21 @@
         }
 
         function showNodeInfo(node) {
-            const connections = graphData.edges.filter(e => e.source.id === node.id || e.target.id === node.id);
+            const connections = graphData.links.filter(e => e.source.id === node.id || e.target.id === node.id);
             const connectedNodes = connections.map(e => {
-                const connectedNodeId = e.source.id === node.id ? e.target.id : e.source.id;
-                const connectedNode = graphData.nodes.find(n => n.id === connectedNodeId);
-                return connectedNode ? connectedNode.name : "N/A";
+                const connectedNode = e.source.id === node.id ? e.target : e.source;
+                return connectedNode.name;
             });
 
             const info = `
                 <h4>${node.name}</h4>
                 <p><strong>ID:</strong> ${node.id}</p>
-                ${node.coordinates && node.coordinates.Maps_url ? `<p><strong>Ubicación:</strong> <a href="${node.coordinates.Maps_url}" target="_blank">Ver en Google Maps</a></p>` : ''}
+                ${node.google_maps_url ? `<p><strong>Ubicación:</strong> <a href="${node.google_maps_url}" target="_blank">Ver en Google Maps</a></p>` : ''}
                 <p><strong>Conexiones:</strong> ${connections.length}</p>
                 <p><strong>Conectado con:</strong> ${connectedNodes.join(', ')}</p>
                 <p><strong>Tiempos de viaje:</strong></p>
                 <ul>
-                    ${connections.map(c => `<li>${c.weight} min (${c.distance}) a ${c.source.id === node.id ? graphData.nodes.find(n=>n.id===c.target.id).name : graphData.nodes.find(n=>n.id===c.source.id).name}</li>`).join('')}
+                    ${connections.map(c => `<li>${c.weight} min (${c.distance}) a ${c.source.id === node.id ? c.target.name : c.source.name}</li>`).join('')}
                 </ul>
             `;
             document.getElementById('node-info').innerHTML = info;
@@ -316,8 +336,8 @@
 
         function updateStats() {
             const nodeCount = graphData.nodes.length;
-            const edgeCount = graphData.edges.length;
-            const totalTime = graphData.edges.reduce((sum, e) => sum + e.weight, 0);
+            const edgeCount = graphData.links.length;
+            const totalTime = graphData.links.reduce((sum, e) => sum + e.weight, 0);
             const avgDegree = (2 * edgeCount / nodeCount).toFixed(1);
 
             document.getElementById('node-count').textContent = nodeCount;
@@ -361,8 +381,8 @@
             if (geographicLayout) {
                 simulation.stop();
 
-                const longitudes = graphData.nodes.map(n => n.coordinates.longitude);
-                const latitudes = graphData.nodes.map(n => n.coordinates.latitude);
+                const longitudes = graphData.nodes.map(n => n.longitude);
+                const latitudes = graphData.nodes.map(n => n.latitude);
 
                 const lonScale = d3.scaleLinear().domain(d3.extent(longitudes)).range([50, width - 50]);
                 const latScale = d3.scaleLinear().domain(d3.extent(latitudes)).range([height - 50, 50]);
@@ -370,30 +390,30 @@
                 nodeElements
                     .transition().duration(750)
                     .attr("cx", d => {
-                        d.fx = lonScale(d.coordinates.longitude);
+                        d.fx = lonScale(d.longitude);
                         return d.fx;
                     })
                     .attr("cy", d => {
-                        d.fy = latScale(d.coordinates.latitude);
+                        d.fy = latScale(d.latitude);
                         return d.fy;
                     });
                 
                 linkElements
                     .transition().duration(750)
-                    .attr("x1", d => lonScale(d.source.coordinates.longitude))
-                    .attr("y1", d => latScale(d.source.coordinates.latitude))
-                    .attr("x2", d => lonScale(d.target.coordinates.longitude))
-                    .attr("y2", d => latScale(d.target.coordinates.latitude));
+                    .attr("x1", d => lonScale(d.source.longitude))
+                    .attr("y1", d => latScale(d.source.latitude))
+                    .attr("x2", d => lonScale(d.target.longitude))
+                    .attr("y2", d => latScale(d.target.latitude));
 
                 nodeLabelElements
                     .transition().duration(750)
-                    .attr("x", d => lonScale(d.coordinates.longitude))
-                    .attr("y", d => latScale(d.coordinates.latitude));
+                    .attr("x", d => lonScale(d.longitude))
+                    .attr("y", d => latScale(d.latitude));
 
                 edgeLabelElements
                     .transition().duration(750)
-                    .attr("x", d => (lonScale(d.source.coordinates.longitude) + lonScale(d.target.coordinates.longitude)) / 2)
-                    .attr("y", d => (latScale(d.source.coordinates.latitude) + latScale(d.target.coordinates.latitude)) / 2);
+                    .attr("x", d => (lonScale(d.source.longitude) + lonScale(d.target.longitude)) / 2)
+                    .attr("y", d => (latScale(d.source.latitude) + latScale(d.target.latitude)) / 2);
                 
                 setTimeout(zoomFit, 800);
 
