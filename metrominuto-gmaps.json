@@ -85,9 +85,9 @@
       "name": "Estación Autobuses",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8894,
+        "latitude": 37.8804,
         "longitude": -4.7902,
-        "google_maps_url": "https://maps.google.com/?q=37.8894,-4.7902"
+        "google_maps_url": "https://maps.google.com/?q=37.8804,-4.7902"
       }
     },
     {
@@ -95,9 +95,9 @@
       "name": "Santa Rosa",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8878,
-        "longitude": -4.7867,
-        "google_maps_url": "https://maps.google.com/?q=37.8878,-4.7867"
+        "latitude": 37.8789,
+        "longitude": -4.7823,
+        "google_maps_url": "https://maps.google.com/?q=37.8789,-4.7823"
       }
     },
     {
@@ -105,9 +105,9 @@
       "name": "Glorieta Almoguevares",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8834,
-        "longitude": -4.7812,
-        "google_maps_url": "https://maps.google.com/?q=37.8834,-4.7812"
+        "latitude": 37.8756,
+        "longitude": -4.7789,
+        "google_maps_url": "https://maps.google.com/?q=37.8756,-4.7789"
       }
     },
     {
@@ -115,9 +115,9 @@
       "name": "Centro Salud Levante Norte",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8756,
-        "longitude": -4.7689,
-        "google_maps_url": "https://maps.google.com/?q=37.8756,-4.7689"
+        "latitude": 37.8723,
+        "longitude": -4.7612,
+        "google_maps_url": "https://maps.google.com/?q=37.8723,-4.7612"
       }
     },
     {
@@ -205,9 +205,9 @@
       "name": "Basílica Gran Capitán",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8823,
+        "latitude": 37.8801,
         "longitude": -4.7789,
-        "google_maps_url": "https://maps.google.com/?q=37.8823,-4.7789"
+        "google_maps_url": "https://maps.google.com/?q=37.8801,-4.7789"
       }
     },
     {
@@ -215,9 +215,9 @@
       "name": "Ayuntamiento",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8789,
+        "latitude": 37.8756,
         "longitude": -4.7823,
-        "google_maps_url": "https://maps.google.com/?q=37.8789,-4.7823"
+        "google_maps_url": "https://maps.google.com/?q=37.8756,-4.7823"
       }
     },
     {
@@ -225,9 +225,9 @@
       "name": "Facultad Derecho",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8712,
+        "latitude": 37.8689,
         "longitude": -4.7889,
-        "google_maps_url": "https://maps.google.com/?q=37.8712,-4.7889"
+        "google_maps_url": "https://maps.google.com/?q=37.8689,-4.7889"
       }
     },
     {
@@ -305,9 +305,9 @@
       "name": "Mezquita-Catedral",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8742,
-        "longitude": -4.7745,
-        "google_maps_url": "https://maps.google.com/?q=37.8742,-4.7745"
+        "latitude": 37.8787,
+        "longitude": -4.7797,
+        "google_maps_url": "https://maps.google.com/?q=37.8787,-4.7797"
       }
     },
     {
@@ -315,9 +315,9 @@
       "name": "Torre Calahorra",
       "type": "station",
       "coordinates": {
-        "latitude": 37.8723,
+        "latitude": 37.8756,
         "longitude": -4.7778,
-        "google_maps_url": "https://maps.google.com/?q=37.8723,-4.7778"
+        "google_maps_url": "https://maps.google.com/?q=37.8756,-4.7778"
       }
     },
     {
